@@ -1,0 +1,15 @@
+Device("Device").App("Application_name").MobileEdit("com.example.girvi.vlogi").Setfocus
+Device("Device").Enterkeys 0,"abc"
+Device("Device").App("Application_name").MobileEdit("com.example.girvi.vlogi_2").Setfocus
+Device("Device").Enterkeys 0,"abc"
+Device("Device").App("Explore").MobileButton("Login").Tap
+wait 5
+If Exists(Device("Device").App("Application_name").MobileLabel("Verification"), 30) Then  ''Hello giri Welcome!!, using Exists function instead for syn issues
+                Reporter.ReportEvent micPass,"VerificationMsg","Got the Payment Verification Message",AddScreenShot()
+Else
+                Reporter.ReportEvent micFail,"VerificationMsg","affsgdgd",AddScreenShot()
+End If 
+
+Device("Device").App("Explore").MobileButton("Logout").Tap
+
+
